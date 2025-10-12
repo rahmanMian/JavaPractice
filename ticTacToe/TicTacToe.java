@@ -1,3 +1,6 @@
+import java.io.*;
+import java.util.List;
+import java.util.ArrayList;
 //whats the move
 // first though would be to make a arraylisy and store chars in them
 // 0 1 2
@@ -11,7 +14,25 @@
 // we 3 have cases: corner case(1,3,4), side middle case(1,3), middle middle case(1,3,4)
 //this is too much but i wnat you to brute force it first
 //0,2,6,8
+//start with teh plyer class
 
-//1,3,5,7
-// 4
+class Board {
+    private ArrayList<Character> board;
 
+    Board() {
+        this.board = new ArrayList<>(9);
+    }
+
+    public void makeMove(int position, char playerSymbol) {
+        this.board.set(position, playerSymbol);
+    }
+}
+
+class Player {
+    private char playerSymbol;
+
+    Player(char playerSymbol) {
+        this.playerSymbol = playerSymbol;
+    }
+
+}
