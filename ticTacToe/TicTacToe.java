@@ -1,7 +1,6 @@
 import java.io.*;
 import java.util.List;
 import java.util.ArrayList;
-//whats the move
 // first though would be to make a arraylisy and store chars in them
 // 0 1 2
 // 3 4 5
