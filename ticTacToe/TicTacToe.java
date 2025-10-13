@@ -16,19 +16,21 @@ import java.util.ArrayList;
 //start with teh plyer class
 
 class Board {
-    private ArrayList<Character> board;
-    private Board gameBoard;
+    private Character[] board;
 
     Board() {
-        this.board = new ArrayList<>(9);
+        this.board = new Character[9];
     }
 
     public void makeMove(int position, char playerSymbol) {
-        this.gameBoard.makeMove(position, playerSymbol);
+
+        if (this.board[position] != null) {
+            this.board[position] = playerSymbol;
+        } else {
+            System.out.println("Spot already occupied");
+        }
     }
 }
-
-
 
 class Player {
     private char playerSymbol;
