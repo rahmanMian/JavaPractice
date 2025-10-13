@@ -18,21 +18,28 @@ import java.util.ArrayList;
 
 class Board {
     private ArrayList<Character> board;
+    private Board gameBoard;
 
     Board() {
         this.board = new ArrayList<>(9);
     }
 
     public void makeMove(int position, char playerSymbol) {
-        this.board.set(position, playerSymbol);
+        this.gameBoard.makeMove(position, playerSymbol);
     }
 }
 
+
+
 class Player {
     private char playerSymbol;
+    private Board playerBoard;
 
     Player(char playerSymbol) {
         this.playerSymbol = playerSymbol;
     }
 
+    public void move(int position) {
+        playerBoard.makeMove(position, this.playerSymbol);
+    }
 }
