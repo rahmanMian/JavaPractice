@@ -30,6 +30,19 @@ class Board {
             System.out.println("Spot already occupied");
         }
     }
+
+
+    public boolean isBoardFull(){
+        boolean flag = true;
+
+        for(int i = 0; i < this.board.length; i++){
+            if(this.board[i] == null){
+                return false;
+            }
+        }
+
+        return flag;
+    }
 }
 
 class Player {
