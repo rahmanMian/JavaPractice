@@ -31,17 +31,104 @@ class Board {
         }
     }
 
-
-    public boolean isBoardFull(){
+    public boolean isBoardFull() {
         boolean flag = true;
 
-        for(int i = 0; i < this.board.length; i++){
-            if(this.board[i] == null){
+        for (int i = 0; i < this.board.length; i++) {
+            if (this.board[i] == null) {
                 return false;
             }
         }
-
         return flag;
+    }
+
+    public boolean hasWon(int currentPosition, char playerSymbol) {
+        switch (currentPosition) {
+            case 0:
+                if ((this.board[1] == playerSymbol) && (this.board[2] == playerSymbol)) {
+                    return true;
+                }
+                if ((this.board[4] == playerSymbol) && (this.board[8] == playerSymbol)) {
+                    return true;
+                }
+                if ((this.board[3] == playerSymbol) && (this.board[6] == playerSymbol)) {
+                    return true;
+                }
+                break;
+            case 1:
+                if ((this.board[0] == playerSymbol) && (this.board[2] == playerSymbol)) {
+                    return true;
+                }
+                if ((this.board[4] == playerSymbol) && (this.board[7] == playerSymbol)) {
+                    return true;
+                }
+                break;
+            case 2:
+                if ((this.board[0] == playerSymbol) && (this.board[1] == playerSymbol)) {
+                    return true;
+                }
+                if ((this.board[5] == playerSymbol) && (this.board[8] == playerSymbol)) {
+                    return true;
+                }
+                break;
+            case 3:
+                if ((this.board[0] == playerSymbol) && (this.board[6] == playerSymbol)) {
+                    return true;
+                }
+                if ((this.board[4] == playerSymbol) && (this.board[5] == playerSymbol)) {
+                    return true;
+                }
+                break;
+            case 4:
+                if ((this.board[1] == playerSymbol) && (this.board[7] == playerSymbol)) {
+                    return true;
+                }
+                if ((this.board[3] == playerSymbol) && (this.board[5] == playerSymbol)) {
+                    return true;
+                }
+                if ((this.board[0] == playerSymbol) && (this.board[8] == playerSymbol)) {
+                    return true;
+                }
+                if ((this.board[2] == playerSymbol) && (this.board[6] == playerSymbol)) {
+                    return true;
+                }
+                break;
+            case 5:
+                if ((this.board[2] == playerSymbol) && (this.board[8] == playerSymbol)) {
+                    return true;
+                }
+                if ((this.board[3] == playerSymbol) && (this.board[4] == playerSymbol)) {
+                    return true;
+                }
+                break;
+            case 6:
+                if ((this.board[3] == playerSymbol) && (this.board[8] == playerSymbol)) {
+                    return true;
+                }
+                if ((this.board[4] == playerSymbol) && (this.board[5] == playerSymbol)) {
+                    return true;
+                }
+                break;
+            case 7:
+                if ((this.board[1] == playerSymbol) && (this.board[4] == playerSymbol)) {
+                    return true;
+                }
+                if ((this.board[4] == playerSymbol) && (this.board[8] == playerSymbol)) {
+                    return true;
+                }
+                break;
+            case 8:
+                if ((this.board[6] == playerSymbol) && (this.board[7] == playerSymbol)) {
+                    return true;
+                }
+                if ((this.board[2] == playerSymbol) && (this.board[5] == playerSymbol)) {
+                    return true;
+                }
+                break;
+
+        }
+
+        return false;
     }
 }
 
