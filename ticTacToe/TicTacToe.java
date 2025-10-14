@@ -1,6 +1,6 @@
 import java.io.*;
-import java.util.List;
-import java.util.ArrayList;
+import java.util.Scanner;
+
 // first though would be to make a arraylisy and store chars in them
 // 0 1 2
 // 3 4 5
@@ -14,6 +14,15 @@ import java.util.ArrayList;
 //this is too much but i wnat you to brute force it first
 //0,2,6,8
 //start with teh plyer class
+
+public class TicTacToe {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter something: ");
+        String input = scanner.nextLine();
+        scanner.close();
+    }
+}
 
 class Board {
     private Character[] board;
