@@ -17,10 +17,18 @@ import java.util.Scanner;
 
 public class TicTacToe {
     public static void main(String[] args) {
+        Board gameBoard = new Board();
+        Player x = new Player('X');
+        Player o = new Player('O');
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter something: ");
+        
+
+        while(gameBoard.isFull()){
+        System.out.print("Enter Position your turn");
         String input = scanner.nextLine();
-        scanner.close();
+        }
+       
+       //add check for user input
     }
 }
 
@@ -40,7 +48,7 @@ class Board {
         }
     }
 
-    public boolean isBoardFull() {
+    public boolean isFull() {
         boolean flag = true;
 
         for (int i = 0; i < this.board.length; i++) {
