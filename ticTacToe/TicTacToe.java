@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.Scanner;
 
-// first though would be to make a arraylisy and store chars in them
+//  first though would be to make a arraylisy and store chars in them
 // 0 1 2
 // 3 4 5
 // 6 7 8
