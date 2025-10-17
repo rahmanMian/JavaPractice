@@ -21,14 +21,31 @@ public class TicTacToe {
         Player x = new Player('X');
         Player o = new Player('O');
         Scanner scanner = new Scanner(System.in);
-        
 
-        while(gameBoard.isFull()){
-        System.out.print("Enter Position your turn");
-        String input = scanner.nextLine();
+        while (!gameBoard.isFull()) {
+            System.out.print("Player X's Turn");
+
+            int input = scanner.nextInt();
+
+            System.out.print(input);
+            x.move(input);
+            // if (gameBoard.hasWon(input, 'O')) {
+            // System.out.println("X WINS!");
+            // }
+            System.out.print("Player O's Turn");
+
+            // Scanner scanner1 = new Scanner(System.in);
+            // int input1 = scanner1.nextInt();
+            // scanner1.close();
+            // o.move(input);
+            // if (gameBoard.hasWon(input1, 'O')) {
+            // System.out.println("O WINS!");
+            // }
+
         }
-       
-       //add check for user input
+        scanner.close();
+
+        // add check for user input
     }
 }
 
