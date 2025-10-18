@@ -18,21 +18,23 @@ import java.util.Scanner;
 public class TicTacToe {
     public static void main(String[] args) {
         Board gameBoard = new Board();
-        Player x = new Player('X');
-        Player o = new Player('O');
+        Player x = new Player('X', gameBoard);
+        Player o = new Player('O', gameBoard);
         Scanner scanner = new Scanner(System.in);
 
         while (!gameBoard.isFull()) {
             System.out.print("Player X's Turn");
 
-            int input = scanner.nextInt();
+            String input = scanner.next();
 
             System.out.print(input);
-            x.move(input);
-            // if (gameBoard.hasWon(input, 'O')) {
-            // System.out.println("X WINS!");
-            // }
-            System.out.print("Player O's Turn");
+            x.move(Integer.parseInt(input));
+
+            if (gameBoard.hasWon(Integer.parseInt(input), 'X')) {
+                System.out.println("X WINS!");
+                break;
+            }
+            // System.out.print("Player O's Turn");
 
             // Scanner scanner1 = new Scanner(System.in);
             // int input1 = scanner1.nextInt();
@@ -58,7 +60,7 @@ class Board {
 
     public void makeMove(int position, char playerSymbol) {
 
-        if (this.board[position] != null) {
+        if (this.board[position] == null) {
             this.board[position] = playerSymbol;
         } else {
             System.out.println("Spot already occupied");
@@ -79,83 +81,104 @@ class Board {
     public boolean hasWon(int currentPosition, char playerSymbol) {
         switch (currentPosition) {
             case 0:
-                if ((this.board[1] == playerSymbol) && (this.board[2] == playerSymbol)) {
+                if ((this.board[1] != null && this.board[1] == playerSymbol)
+                        && (this.board[2] != null && this.board[2] == playerSymbol)) {
                     return true;
                 }
-                if ((this.board[4] == playerSymbol) && (this.board[8] == playerSymbol)) {
+                if (this.board[4] != null && (this.board[4] == playerSymbol)
+                        && (this.board[8] != null && this.board[8] == playerSymbol)) {
                     return true;
                 }
-                if ((this.board[3] == playerSymbol) && (this.board[6] == playerSymbol)) {
+                if ((this.board[3] != null && this.board[3] == playerSymbol)
+                        && (this.board[6] != null && this.board[6] == playerSymbol)) {
                     return true;
                 }
                 break;
             case 1:
-                if ((this.board[0] == playerSymbol) && (this.board[2] == playerSymbol)) {
+                if ((this.board[0] != null && this.board[0] == playerSymbol)
+                        && (this.board[2] != null && this.board[2] == playerSymbol)) {
                     return true;
                 }
-                if ((this.board[4] == playerSymbol) && (this.board[7] == playerSymbol)) {
+                if ((this.board[4] != null && this.board[4] == playerSymbol)
+                        && (this.board[7] != null && this.board[7] == playerSymbol)) {
                     return true;
                 }
                 break;
             case 2:
-                if ((this.board[0] == playerSymbol) && (this.board[1] == playerSymbol)) {
+                if ((this.board[0] != null && this.board[0] == playerSymbol)
+                        && (this.board[1] != null && this.board[1] == playerSymbol)) {
                     return true;
                 }
-                if ((this.board[5] == playerSymbol) && (this.board[8] == playerSymbol)) {
+                if ((this.board[5] != null && this.board[5] == playerSymbol)
+                        && (this.board[8] != null && this.board[8] == playerSymbol)) {
                     return true;
                 }
                 break;
             case 3:
-                if ((this.board[0] == playerSymbol) && (this.board[6] == playerSymbol)) {
+                if ((this.board[0] != null && this.board[0] == playerSymbol)
+                        && (this.board[6] != null && this.board[6] == playerSymbol)) {
                     return true;
                 }
-                if ((this.board[4] == playerSymbol) && (this.board[5] == playerSymbol)) {
+                if ((this.board[4] != null && this.board[4] == playerSymbol)
+                        && (this.board[5] != null && this.board[5] == playerSymbol)) {
                     return true;
                 }
                 break;
             case 4:
-                if ((this.board[1] == playerSymbol) && (this.board[7] == playerSymbol)) {
+                if ((this.board[1] != null && this.board[1] == playerSymbol)
+                        && (this.board[7] != null && this.board[7] == playerSymbol)) {
                     return true;
                 }
-                if ((this.board[3] == playerSymbol) && (this.board[5] == playerSymbol)) {
+                if ((this.board[3] != null && this.board[3] == playerSymbol)
+                        && (this.board[5] != null && this.board[5] == playerSymbol)) {
                     return true;
                 }
-                if ((this.board[0] == playerSymbol) && (this.board[8] == playerSymbol)) {
+                if ((this.board[0] != null && this.board[0] == playerSymbol)
+                        && (this.board[8] != null && this.board[8] == playerSymbol)) {
                     return true;
                 }
-                if ((this.board[2] == playerSymbol) && (this.board[6] == playerSymbol)) {
+                if ((this.board[2] != null && this.board[2] == playerSymbol)
+                        && (this.board[6] != null && this.board[6] == playerSymbol)) {
                     return true;
                 }
                 break;
             case 5:
-                if ((this.board[2] == playerSymbol) && (this.board[8] == playerSymbol)) {
+                if ((this.board[2] != null && this.board[2] == playerSymbol)
+                        && (this.board[8] != null && this.board[8] == playerSymbol)) {
                     return true;
                 }
-                if ((this.board[3] == playerSymbol) && (this.board[4] == playerSymbol)) {
+                if ((this.board[3] != null && this.board[3] == playerSymbol)
+                        && (this.board[4] != null && this.board[4] == playerSymbol)) {
                     return true;
                 }
                 break;
             case 6:
-                if ((this.board[3] == playerSymbol) && (this.board[8] == playerSymbol)) {
+                if ((this.board[3] != null && this.board[3] == playerSymbol)
+                        && (this.board[8] != null && this.board[8] == playerSymbol)) {
                     return true;
                 }
-                if ((this.board[4] == playerSymbol) && (this.board[5] == playerSymbol)) {
+                if ((this.board[4] != null && this.board[4] == playerSymbol)
+                        && (this.board[5] != null && this.board[5] == playerSymbol)) {
                     return true;
                 }
                 break;
             case 7:
-                if ((this.board[1] == playerSymbol) && (this.board[4] == playerSymbol)) {
+                if ((this.board[1] != null && this.board[1] == playerSymbol)
+                        && (this.board[4] != null && this.board[4] == playerSymbol)) {
                     return true;
                 }
-                if ((this.board[4] == playerSymbol) && (this.board[8] == playerSymbol)) {
+                if ((this.board[4] != null && this.board[4] == playerSymbol)
+                        && (this.board[8] != null && this.board[8] == playerSymbol)) {
                     return true;
                 }
                 break;
             case 8:
-                if ((this.board[6] == playerSymbol) && (this.board[7] == playerSymbol)) {
+                if ((this.board[6] != null && this.board[6] == playerSymbol)
+                        && (this.board[7] != null && this.board[7] == playerSymbol)) {
                     return true;
                 }
-                if ((this.board[2] == playerSymbol) && (this.board[5] == playerSymbol)) {
+                if ((this.board[2] != null && this.board[2] == playerSymbol)
+                        && (this.board[5] != null && this.board[5] == playerSymbol)) {
                     return true;
                 }
                 break;
@@ -168,13 +191,14 @@ class Board {
 
 class Player {
     private char playerSymbol;
-    private Board playerBoard;
+    private Board gameBoard;
 
-    Player(char playerSymbol) {
+    Player(char playerSymbol, Board gameBoard) {
         this.playerSymbol = playerSymbol;
+        this.gameBoard = gameBoard;
     }
 
     public void move(int position) {
-        playerBoard.makeMove(position, this.playerSymbol);
+        gameBoard.makeMove(position, this.playerSymbol);
     }
 }
