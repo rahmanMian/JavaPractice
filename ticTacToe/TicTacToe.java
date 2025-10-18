@@ -36,11 +36,9 @@ public class TicTacToe {
             }
             // System.out.print("Player O's Turn");
 
-            // Scanner scanner1 = new Scanner(System.in);
-            // int input1 = scanner1.nextInt();
-            // scanner1.close();
-            // o.move(input);
-            // if (gameBoard.hasWon(input1, 'O')) {
+            // scanner = new Scanner(System.in);
+            // o.move(Integer.parseInt(input));
+            // if (gameBoard.hasWon(Integer.parseInt(input), 'O')) {
             // System.out.println("O WINS!");
             // }
 
@@ -59,7 +57,6 @@ class Board {
     }
 
     public void makeMove(int position, char playerSymbol) {
-
         if (this.board[position] == null) {
             this.board[position] = playerSymbol;
         } else {
@@ -154,7 +151,7 @@ class Board {
                 break;
             case 6:
                 if ((this.board[3] != null && this.board[3] == playerSymbol)
-                        && (this.board[8] != null && this.board[8] == playerSymbol)) {
+                        && (this.board[0] != null && this.board[0] == playerSymbol)) {
                     return true;
                 }
                 if ((this.board[4] != null && this.board[4] == playerSymbol)
@@ -179,6 +176,10 @@ class Board {
                 }
                 if ((this.board[2] != null && this.board[2] == playerSymbol)
                         && (this.board[5] != null && this.board[5] == playerSymbol)) {
+                    return true;
+                }
+                if ((this.board[0] != null && this.board[0] == playerSymbol)
+                        && (this.board[4] != null && this.board[4] == playerSymbol)) {
                     return true;
                 }
                 break;
